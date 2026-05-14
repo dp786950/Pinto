@@ -1,0 +1,177 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* BODY */
+body{
+    background: linear-gradient(135deg, #021b2b, #033b5c, #045d75);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* SPACE ABOVE SECTION HEADINGS */
+.tree h2{
+    margin-top:40px;
+    margin-bottom:20px;
+}
+
+/* 🌊 DIGITAL MOVING BACKGROUND */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:200%;
+    height:200%;
+    z-index:-1;
+
+    background-image:
+    radial-gradient(circle at 20% 20%, rgba(0,255,255,0.15) 2px, transparent 2px),
+    radial-gradient(circle at 80% 40%, rgba(0,255,255,0.1) 2px, transparent 2px),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.08) 2px, transparent 2px);
+
+    background-size:120px 120px;
+
+    animation: floatBg 22s linear infinite;
+    opacity:0.9;
+}
+
+/* 🔵 SMOOTH FLOAT ANIMATION */
+@keyframes floatBg{
+    0%{
+        transform: translate3d(0,0,0);
+    }
+    50%{
+        transform: translate3d(-90px,-90px,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+
+/* 📱 RESPONSIVE SPEED CONTROL */
+@media (max-width:768px){
+    body::before{
+        animation-duration:35s; /* slower & smoother on mobile */
+    }
+}
+
+/* HEADER */
+header{
+    background:rgba(0,0,0,0.35);
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+    backdrop-filter:blur(8px);
+    border-bottom:2px solid rgba(0,255,255,0.2);
+}
+
+header h1{
+    font-size:3rem;
+    color:#7fffd4;
+    text-shadow:0 0 15px rgba(0,255,255,0.7);
+}
+
+/* HOME BUTTON */
+.home{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#00bcd4;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.4s;
+    box-shadow:0 0 10px rgba(0,255,255,0.5);
+}
+
+.home:hover{
+    background:#00e5ff;
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(0,255,255,0.8);
+}
+
+/* TREE SECTION */
+.tree{
+    padding:60px 20px;
+    text-align:center;
+}
+
+/* MAIN BOX */
+.box{
+    background:rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:20px;
+    max-width:700px;
+    margin:auto;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(0,255,255,0.2);
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+/* GENERATION GRID */
+.generation{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+/* FAMILY MEMBER CARDS */
+.member{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    width:250px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+    transition:0.4s;
+}
+
+.member:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(0,255,255,0.4);
+}
+
+.member h3{
+    color:#7fffd4;
+    margin-bottom:10px;
+}
+
+.member p{
+    color:#f1ffff;
+}
+
+/* FOOTER */
+footer{
+    background:rgba(0,0,0,0.4);
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width:768px){
+
+    header h1{
+        font-size:2rem;
+    }
+
+    .generation{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .member{
+        width:90%;
+    }
+
+}
